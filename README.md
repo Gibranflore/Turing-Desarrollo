@@ -22,7 +22,7 @@ Sigue estos pasos para correr y configurar el entorno local:
 
 ```bash
 # 1️⃣ Clona el repositorio
-
+git clone https://github.com/Gibranflore/Turing-Desarrollo.git
 
 # 2️⃣ Entrar en el directorio del proyecto
 cd FrontEnd_Personajes
