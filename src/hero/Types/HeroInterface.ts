@@ -10,7 +10,7 @@ export interface Hero {
     speed:           number;
     durability:      number;
     team:            string;
-    images:           string;
+    image:           string;
     firstAppearance: string;
     status:          string;
     category:        string;

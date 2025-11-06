@@ -1,22 +1,23 @@
 import { AdminPage } from "@/admin/page/AdminPage";
 
 import { AdminLayout } from "@/admin/Layout/AdminLayout";
-import { CharacterLayout } from "@/hero/Layout/Layout";
-import { CharacterPage } from "@/hero/page/CharacterPage";
 
 
+// import { SearchPage } from "@/hero/search/SearchPage";
 
-
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import { lazy } from "react";
 import {HomePage} from "@/hero/home/HomePage";
+import { HeroesLayout } from "@/hero/Layout/Layout";
+import { HeroPage } from "@/hero/page/HeroPage";
+
 
 const SearchPage = lazy(() => import("@/hero/search/SearchPage"))
 
 export const Router = createBrowserRouter([
   {
     path: '/',
-    element: <CharacterLayout/>,
+    element: <HeroesLayout/>,
     children: [
 
       {
@@ -28,9 +29,13 @@ export const Router = createBrowserRouter([
         element: <HomePage/>
       },
       {
-        path: '/hero/1',
-        element: <CharacterPage/>
+        path: 'heroes/:idSlug',
+        element: <HeroPage/>
       },
+      {
+        path: "*",
+        element: <Navigate to='/'/>
+      }
     ],
   },
   {

@@ -23,9 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 *.env
-
-
-
-**/.getHeroesResponse.ts
-**/.HeroInterface.ts
-**/API/

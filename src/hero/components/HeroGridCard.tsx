@@ -5,7 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import type { Hero } from '../types/hero.interface';
+import type { Hero } from '../Types/HeroInterface';
+
 
 interface Props {
   hero: Hero;
@@ -19,7 +20,7 @@ export const HeroGridCard = ({ hero }: Props) => {
   };
 
   return (
-    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50">
+    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-purple-800 bg-[var(--brand-deep)]">
       <div className="relative h-64">
         <img
           src={hero.image}
@@ -101,7 +102,7 @@ export const HeroGridCard = ({ hero }: Props) => {
             <Progress
               value={hero.strength * 10}
               className="h-2"
-              activeColor="bg-orange-500"
+              activateColor="bg-orange-500"
             />
           </div>
           <div className="space-y-1">
@@ -112,7 +113,7 @@ export const HeroGridCard = ({ hero }: Props) => {
             <Progress
               value={hero.intelligence * 10}
               className="h-2"
-              activeColor="bg-blue-500"
+              activateColor="bg-blue-500"
             />
           </div>
           <div className="space-y-1">
@@ -123,7 +124,7 @@ export const HeroGridCard = ({ hero }: Props) => {
             <Progress
               value={hero.speed * 10}
               className="h-2"
-              activeColor="bg-green-500"
+              activateColor="bg-green-500"
             />
           </div>
           <div className="space-y-1">
@@ -134,7 +135,7 @@ export const HeroGridCard = ({ hero }: Props) => {
             <Progress
               value={hero.durability * 10}
               className="h-2"
-              activeColor="bg-purple-500"
+              activateColor="bg-purple-500"
             />
           </div>
         </div>

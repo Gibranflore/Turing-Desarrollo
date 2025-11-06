@@ -9,10 +9,10 @@ export const SearchPage = () => {
     <>
       <Jumbotron 
           title="Pagiande de Busqueda" 
-          description="Descubre tu Personaje favorito"/>
+          description="Descubre tu heroe favorito"/>
 
       <CustomBreadCrums 
-        currentPage="Buscador de Personajes"
+        currentPage="Buscador de Heroes"
         breadcrumbs={[
           { label: 'homePage1', to: '/' },
           { label: 'homePage2', to: '/' },
