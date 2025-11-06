@@ -6,9 +6,10 @@ import { HeroStats } from '../components/HeroStats';
 import { CustomPage } from '@/components/ui/Custom/CustomPage';
 import { Jumbotron } from '@/components/ui/Custom/Jumbotron';
 import { HeroGrid } from '../components/HerogGrid';
-import { useHeroPagination } from '../hooks/useHeroPagination';
-import { useHeroSummary } from '../hooks/useHeroSummary';
+
 import { CustomBreadCrums } from '@/components/ui/Custom/CustomBreadCrums';
+import { useHeroSummary } from '../hooks/useHeroSummary';
+import { useHeroPagination } from '../hooks/useHeroPagination';
 
 
 export const HomePage = () => {

@@ -2,8 +2,9 @@ import { Badge } from '@/components/ui/badge'
 
 import { Heart,Users, Zap, } from 'lucide-react'
 import { HeroStatCard } from './HeroStatCard'
+import { useHeroSummary } from '../hooks/useHeroSummary';
 
-import { useHeroSummary } from '../hooks/useHeroSummary'
+
 
 export const HeroStats = () => {
 
