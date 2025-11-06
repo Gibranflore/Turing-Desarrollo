@@ -29,3 +29,7 @@ cd FrontEnd_Personajes
 
 # 3️⃣ Instalar las dependencias
 npm install
+
+# Correr proyecto
+
+npm run dev
