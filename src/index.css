@@ -108,6 +108,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+
+    --brand-deep: #0F2D3C;
+  --green-aqua: #1EBE91;
+  --verde-verde:#69D7B9;
+  --gris-gris: #C8D2D7;
+  --pasto-pasto: #005546;
 }
 
 @layer base {

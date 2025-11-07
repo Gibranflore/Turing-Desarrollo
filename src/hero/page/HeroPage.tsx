@@ -1,30 +1,33 @@
-
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useQuery } from "@tanstack/react-query"
 import { Shield, Zap, Brain, Gauge, Users, Star, Award, Image } from "lucide-react"
+import { Navigate, useParams } from "react-router"
+import { getHeroAction } from "../hooks/get.hero"
 
 
-const superheroData = {
-  id: "1",
-  name: "Clark Kent",
-  alias: "Superman",
-  powers: ["Súper fuerza", "Vuelo", "Visión de calor", "Visión de rayos X", "Invulnerabilidad", "Súper velocidad"],
-  description: "El Último Hijo de Krypton, protector de la Tierra y símbolo de esperanza para toda la humanidad.",
-  strength: 10,
-  intelligence: 8,
-  speed: 9,
-  durability: 10,
-  team: "Liga de la Justicia",
-  image: "/placeholder.svg?height=300&width=300",
-  firstAppearance: "1938",
-  status: "Activo",
-  category: "Héroe",
-  universe: "DC",
-}
 
 export const HeroPage = () => {
+
+  const {idSlug = ' '} = useParams();
+
+  const {data: superheroData, isError} = useQuery({
+    queryKey: ['heroes', idSlug],
+    queryFn: () => getHeroAction(idSlug),
+    retry: false
+  })
+
+  if (isError) {
+    return <Navigate to='/'/>
+  }
+
+  if (!superheroData) {
+    return <h1>Cargando...</h1>
+  }
+
+
   const totalPower =
     superheroData.strength + superheroData.intelligence + superheroData.speed + superheroData.durability
   const averagePower = Math.round((totalPower / 4) * 10)
@@ -62,7 +65,7 @@ export const HeroPage = () => {
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
-              <Image
+              <Image 
                 src={superheroData.image || "/placeholder.svg"}
                 alt={superheroData.alias}
                 width={200}

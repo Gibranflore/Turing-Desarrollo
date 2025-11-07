@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import type { Hero } from '../Types/HeroInterface';
+import { use } from 'react';
+import { FavoriteHeroContext } from '../context/FavoriteHero';
+
 
 
 interface Props {
@@ -14,13 +17,14 @@ interface Props {
 
 export const HeroGridCard = ({ hero }: Props) => {
   const navigate = useNavigate();
+  const {isFavorite, toggleFavorite} = use(FavoriteHeroContext)
 
   const handleClick = () => {
     navigate(`/heroes/${hero.slug}`);
   };
 
   return (
-    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-purple-800 bg-[var(--brand-deep)]">
+    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br bg-emerald-400">
       <div className="relative h-64">
         <img
           src={hero.image}
@@ -30,10 +34,10 @@ export const HeroGridCard = ({ hero }: Props) => {
         />
 
         {/* Status indicator */}
-        <div className="absolute top-3 left-3 flex items-center gap-2">
+        <div className="absolute top-3 left-3 flex items-center gap-2 ">
           <div
             className={`w-3 h-3 rounded-full ${
-              hero.status === 'Active' ? 'bg-green-500' : 'bg-red-500'
+              hero.status === 'Active' ? 'bg-yellow-500' : 'bg-red-500'
             }`}
           />
           <Badge
@@ -60,8 +64,10 @@ export const HeroGridCard = ({ hero }: Props) => {
           size="sm"
           variant="ghost"
           className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+          onClick={() => toggleFavorite(hero)}
         >
-          <Heart className="h-4 w-4 fill-red-500 text-red-500" />
+          <Heart className={`h-4 w-4 ${isFavorite(hero) ? 'fill-red-500  text-red-500': 'text-grey-500' }`} />
+            
         </Button>
 
         {/* View details button */}
@@ -80,7 +86,7 @@ export const HeroGridCard = ({ hero }: Props) => {
             <h3 className="font-bold text-lg leading-tight">{hero.alias}</h3>
             <p className="text-sm text-gray-600">{hero.name}</p>
           </div>
-          <Badge className="text-xs bg-green-100 text-green-800 border-green-200">
+          <Badge className="text-xs bg-yellow-100 text-yellow-800 border-yellow-200">
             {hero.category}
           </Badge>
         </div>
@@ -118,13 +124,13 @@ export const HeroGridCard = ({ hero }: Props) => {
           </div>
           <div className="space-y-1">
             <div className="flex items-center gap-1">
-              <Gauge className="h-3 w-3 text-green-500" />
+              <Gauge className="h-3 w-3 text-yellow-500" />
               <span className="text-xs font-medium">Speed</span>
             </div>
             <Progress
               value={hero.speed * 10}
               className="h-2"
-              activateColor="bg-green-500"
+              activateColor="bg-yellow-500"
             />
           </div>
           <div className="space-y-1">

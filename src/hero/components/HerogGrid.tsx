@@ -1,5 +1,3 @@
-
-
 import type { Hero } from '../Types/HeroInterface';
 import { HeroGridCard } from './HeroGridCard';
 
