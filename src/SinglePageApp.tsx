@@ -12,8 +12,6 @@ export const SinglePage = () => {
     return (
         <><QueryClientProvider client={queryClient}>
             <FavoriteHeroProvider>
-
-
             <RouterProvider router={Router}/>
             <ReactQueryDevtools initialIsOpen={false} />
             </FavoriteHeroProvider>
